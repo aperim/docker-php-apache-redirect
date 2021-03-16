@@ -13,4 +13,5 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 
 RUN a2enmod rewrite && \
   a2enmod remoteip && \
-  printf "\n\n# Allow loadbalancer X-Forwarded-For header\nRemoteIPHeader X-Forwarded-For\n" >> /etc/apache2/apache2.conf
+  printf "\n\n# Allow loadbalancer X-Forwarded-For header\nRemoteIPHeader X-Forwarded-For\n" >> /etc/apache2/apache2.conf && \
+  sed -i --regexp-extended 's/^(LogFormat\s+.*)\%h(.*)$/\1\%a\2/' /etc/apache2/apache2.conf
