@@ -11,4 +11,6 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
   org.label-schema.version=$VERSION \
   org.label-schema.schema-version="1.0"
 
-RUN a2enmod rewrite
+RUN a2enmod rewrite && \
+  a2enmod remoteip && \
+  printf "\n\n# Allow loadbalancer X-Forwarded-For header\nRemoteIPHeader X-Forwarded-For\n" >> /etc/apache2/apache2.conf
