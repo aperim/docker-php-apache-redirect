@@ -59,6 +59,7 @@ jobs:
               VERSION=${{ steps.prepare.outputs.version }}
               BUILD_DATE=${{ steps.prepare.outputs.build_date }}
               VCS_REF=${GITHUB_SHA::8}
+              PHP_VERSION=${{ steps.prepare.outputs.version }}
           tags: |
             aperimau/php-apache-redirect:${{ steps.prepare.outputs.version }}
             aperimau/php-apache-redirect:latest

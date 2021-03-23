@@ -1,9 +1,10 @@
-FROM php:8.0.3-apache-buster
+ARG PHP_VERSION=8
+FROM php:${PHP_VERSION}-apache-buster
 
 LABEL org.opencontainers.image.source https://github.com/aperim/docker-php-apache-redirect
 LABEL org.label-schema.build-date=$BUILD_DATE \
-  org.label-schema.name="PHP Apache with ModRewrite" \
-  org.label-schema.description="PHP Apache with ModRewrite" \
+  org.label-schema.name="PHP ${PHP_VERSION} Apache with ModRewrite" \
+  org.label-schema.description="PHP ${PHP_VERSION} Apache with ModRewrite" \
   org.label-schema.url="https://github.com/aperim/docker-php-apache-redirect" \
   org.label-schema.vcs-ref=$VCS_REF \
   org.label-schema.vcs-url="https://github.com/aperim/docker-php-apache-redirect" \
